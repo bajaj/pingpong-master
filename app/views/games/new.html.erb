@@ -1,0 +1,37 @@
+<h1 class='page-header'>Log Game</h1>
+
+<div class="col-sm-12">
+  <%= form_tag games_path, method: :post, class: "form form-horizontal" do %>
+      <div class="form-group">
+        <%= label_tag "Date played", nil, class: "control-label col-sm-3" %>
+        <div class="col-sm-9">
+          <%= date_select "game_form[game]", "played_on", {}, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag "Opponent", nil, class: "control-label col-sm-3" %>
+        <div class="col-sm-9">
+          <%= select_tag "game_form[opponent][user_id]", options_from_collection_for_select(@form.opponents_list, :id, :email), class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag "Your Score", nil, class: "control-label col-sm-3" %>
+        <div class="col-sm-9">
+          <%= number_field_tag "game_form[score]", 0, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag "Their Score", nil, class: "control-label col-sm-3" %>
+        <div class="col-sm-9">
+          <%= number_field_tag "game_form[opponent][score]", 0, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-9 col-sm-prefix-3">
+          <%= submit_tag "Save", class: "btn btn-primary" %>
+          <%= link_to "Cancel", root_path, class: "btn btn-link" %>
+        </div>
+      </div>
+  <% end %>
+</div>
+<div class="clearfix"></div>
