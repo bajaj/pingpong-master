@@ -4,4 +4,6 @@ class User < ActiveRecord::Base
   has_many :players_1, :class_name => 'Game', :foreign_key => 'player_1_id'
   has_many :players_2, :class_name => 'Game', :foreign_key => 'player_2_id'
 
+  has_one :user_rating
+
 end
