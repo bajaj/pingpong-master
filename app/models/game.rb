@@ -24,7 +24,6 @@ class Game < ActiveRecord::Base
   # Player +:one+ has won!
   # This is a shortcut method for setting the score to 1
   def win
-    puts "cool win"
     process_result 1.0
   end
 
@@ -32,12 +31,6 @@ class Game < ActiveRecord::Base
   # This is a shortcut method for setting the score to 0
   def lose
     process_result 0.0
-  end
-
-  # It was a draw.
-  # This is a shortcut method for setting the score to 0.5
-  def draw
-    process_result 0.5
   end
 
 

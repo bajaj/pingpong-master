@@ -28,10 +28,14 @@ class GameForm
     begin
       ActiveRecord::Base.transaction do
         game = Game.create!(game_fields)
-        puts "cool"
-        game.win
-        #owner_score = GameScore.create!(owner_attrs.merge(game: game))
-        #opponent_score = GameScore.create!(opponent_attrs.merge(game: game))
+
+        if game.player_1_score > game.player_2_score
+          game.winner = game.player_1
+        else
+          game.winner = game.player_2
+        end
+
+
       end
       true
     rescue => e

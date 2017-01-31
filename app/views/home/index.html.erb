@@ -7,15 +7,21 @@
   <table class="table table-striped table-bordered">
     <thead>
     <tr>
+      <th>Rank</th>
       <th>Name</th>
       <th>Score</th>
+      <th>Games Played</th>
     </tr>
     </thead>
     <tbody>
+    <% @rank = 1 %>
     <% @user_ratings.each do |user_rating| %>
         <tr>
+          <td><%= @rank %></td>
           <td><%= user_rating.email %></td>
           <td><%= user_rating.ratings %></td>
+          <td><%= user_rating.games_played %></td>
+          <% @rank += 1 %>
         </tr>
     <% end %>
     </tbody>

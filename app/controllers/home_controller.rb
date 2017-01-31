@@ -1,8 +1,6 @@
 class HomeController < ApplicationController
   def index
-    puts "wfwjfef"
-    @user_ratings = User.all
-    puts "geege"
+    @user_ratings = User.order(ratings: :desc).all
   end
 
   def history

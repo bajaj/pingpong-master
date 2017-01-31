@@ -11,11 +11,6 @@ class User < ActiveRecord::Base
     Game.where('player_1 = ? or player_2 = ?', id, id);
   end
 
-  # def ratings
-  #   (ratings == nil || ratings == 0) ? Elo.config.default_rating : self[:ratings]
-  #  end
-
-
   # The number of games played is needed for calculating the K-factor.
   def games_played
     @games_played ||= get_my_games.size
