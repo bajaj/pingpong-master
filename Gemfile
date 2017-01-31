@@ -15,5 +15,5 @@ gem 'elo'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '>= 3.3.0'
-  gem 'sqlite3'
+  gem 'pg'
 end
