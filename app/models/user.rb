@@ -3,10 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :players_1, :class_name => 'Game', :foreign_key => 'player_1'
   has_many :players_2, :class_name => 'Game', :foreign_key => 'player_2'
-
-  has_one :user_rating
-
-
+  
   def get_my_games
     Game.where('player_1 = ? or player_2 = ?', id, id);
   end
